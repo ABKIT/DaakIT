@@ -1,0 +1,107 @@
+{
+  "project_info": {
+    "project_number": "758335501334",
+    "firebase_url": "https://daakyou.firebaseio.com",
+    "project_id": "daakyou",
+    "storage_bucket": "daakyou.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:758335501334:android:799a6d3f80292888",
+        "android_client_info": {
+          "package_name": "com.daakit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "758335501334-4dim9dlonsvllpuf05g8p7njuheet3mp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.daakit",
+            "certificate_hash": "ae86aeada1b85a5e1464c5c9cac2e02c513a9f36"
+          }
+        },
+        {
+          "client_id": "758335501334-f5d58jg2gcuj2ahm4urfokvdc0og1mrh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlShYOjLpo-jbDUYXpvxn8MWMq73EL8Is"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "758335501334-f5d58jg2gcuj2ahm4urfokvdc0og1mrh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:758335501334:android:9fc90fd3f9bb5307",
+        "android_client_info": {
+          "package_name": "com.daakyou"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "758335501334-03q17t26kgmm3h7255q1897nv7s65i5j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.daakyou",
+            "certificate_hash": "ae86aeada1b85a5e1464c5c9cac2e02c513a9f36"
+          }
+        },
+        {
+          "client_id": "758335501334-q0o9urv7691cb0aucoflg4a1upv1b1o4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.daakyou",
+            "certificate_hash": "69cf7acb62d31d73c9b3fe084f1aedd8bcfb04e5"
+          }
+        },
+        {
+          "client_id": "758335501334-f5d58jg2gcuj2ahm4urfokvdc0og1mrh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlShYOjLpo-jbDUYXpvxn8MWMq73EL8Is"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "758335501334-f5d58jg2gcuj2ahm4urfokvdc0og1mrh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

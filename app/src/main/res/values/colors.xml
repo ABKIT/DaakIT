@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#000</color>
+    <color name="white">#ffffff</color>
+    <color name="bluetextcolor">#683ab7</color>
+    <color name="grey">#787070</color>
+    <color name="tabtextcoloronselect">#f91010</color>
+    <color name="black">#000</color>
+    <color name="tabtextcolor">#9c9b9b</color>
+    <color name="toolbarbackgroundcolor">#dedfe1</color>
+    <color name="orange">#c54129</color>
+    <color name="orangecl">#c54129</color>
+    <color name="unselectcl">#eae6e6</color>
+    <color name="unselecttxcl">#897c7c</color>
+</resources>
