@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 import com.daakit.signup.signup;
 import com.daakit.sitting.opendrawer;
-import com.daakit.user_location.Location;
+import com.daakit.user_location.userlocation;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if(v==c1)
         {
-            Intent i=new Intent(getApplicationContext(),Location.class);
+            Intent i=new Intent(getApplicationContext(),userlocation.class);
             startActivity(i);
             Toast.makeText(this, "Create Order", Toast.LENGTH_SHORT).show();
         }

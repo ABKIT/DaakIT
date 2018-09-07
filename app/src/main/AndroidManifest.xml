@@ -38,8 +38,8 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".user_location.Location"
-            android:label="@string/title_activity_location"></activity>
+            android:name=".user_location.userlocation"
+            android:label="@string/title_activity_userlocation"></activity>
     </application>
 
 </manifest>
