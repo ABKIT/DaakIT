@@ -14,4 +14,7 @@
     <color name="orangecl">#c54129</color>
     <color name="unselectcl">#eae6e6</color>
     <color name="unselecttxcl">#897c7c</color>
+    <color name="menufont">#f15e24</color>
+
+
 </resources>
