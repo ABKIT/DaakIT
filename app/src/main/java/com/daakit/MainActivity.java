@@ -87,7 +87,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         {
             Intent i=new Intent(getApplicationContext(),userlocation.class);
             startActivity(i);
-            Toast.makeText(this, "Create Order", Toast.LENGTH_SHORT).show();
         }
         else if(v==c2)
         {

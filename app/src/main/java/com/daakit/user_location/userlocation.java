@@ -148,7 +148,7 @@ public class userlocation extends FragmentActivity implements OnMapReadyCallback
 
         //move camera
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(16));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(10));
     }
 
     @Override
