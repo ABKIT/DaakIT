@@ -1,6 +1,7 @@
 package com.daakit.user_location;
 
 import android.Manifest;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.support.annotation.NonNull;
@@ -10,6 +11,8 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
 import com.daakit.R;
+import com.firebase.geofire.GeoFire;
+import com.firebase.geofire.GeoLocation;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationRequest;
@@ -20,13 +23,19 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class userlocation extends FragmentActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, com.google.android.gms.location.LocationListener {
 
     private GoogleMap mMap;
     private GoogleApiClient mgoogleapiclient;
     private Location mlastlocation;
-    LocationRequest mlocationreq;
+    private LocationRequest mlocationreq;
+    private FirebaseAuth ath;
+    private SharedPreferences lastlocation;
+    private String lastlat,lastlong;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +45,31 @@ public class userlocation extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        getids();
+        getpreference();
+    }
+    private void getpreference()
+    {
+        lastlocation=getSharedPreferences("Lservice",MODE_PRIVATE);
+        lastlat=lastlocation.getString("Latitude","none");
+        lastlong=lastlocation.getString("Longtitude","none");
+    }
+    private void setprefernce()
+    {
+        try {
+            SharedPreferences.Editor editor = getSharedPreferences("Lservice", MODE_PRIVATE).edit();
+            editor.putString("Latitude", String.valueOf(mlastlocation.getLatitude()));
+            editor.putString("Longtitude", String.valueOf(mlastlocation.getLongitude()));
+            editor.apply();
+        }
+        catch (Exception e)
+        {
+
+        }
+    }
+
+    private void getids() {
+        ath=FirebaseAuth.getInstance();
     }
 
 
@@ -59,6 +93,16 @@ public class userlocation extends FragmentActivity implements OnMapReadyCallback
         }
 
         mMap.setMyLocationEnabled(true);
+        if(!lastlat.equals("none") && !lastlong.equals("none"))
+        {
+            LatLng latLng=new LatLng(Double.valueOf(lastlat),Double.valueOf(lastlong));
+
+            //move camera
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+            mMap.animateCamera(CameraUpdateFactory.zoomTo(16));
+        }
+
+
     }
 
     private synchronized void buildgoogleapiclient()
@@ -105,5 +149,31 @@ public class userlocation extends FragmentActivity implements OnMapReadyCallback
         //move camera
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(16));
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        setprefernce();
+    }
+
+    //add location when user create order
+    private void createuserlocation()
+    {
+        String uid=ath.getCurrentUser().getUid();
+        DatabaseReference dbstore=FirebaseDatabase.getInstance().getReference("Ordercreated");
+        GeoFire geofire=new GeoFire(dbstore);
+        geofire.setLocation(uid,new GeoLocation(mlastlocation.getLatitude(),mlastlocation.getLongitude()));
+
+
+    }
+
+    //remove user location after order cancel or completed
+    private void removeuserlocation()
+    {
+        String uid=ath.getCurrentUser().getUid();
+        DatabaseReference dbstore=FirebaseDatabase.getInstance().getReference("Ordercreated");
+        GeoFire geofire=new GeoFire(dbstore);
+        geofire.removeLocation(uid);
     }
 }

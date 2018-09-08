@@ -38,5 +38,8 @@ dependencies {
     //google maps dependies
     implementation 'com.google.android.gms:play-services-location:11.0.4'
 
+    //Geo-fire
+    implementation 'com.firebase:geofire-android:2.3.1'
+
 }
 apply plugin: 'com.google.gms.google-services'
